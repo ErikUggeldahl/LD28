@@ -14,12 +14,14 @@ public class PlayerMovement : MonoBehaviour
 	
 	void Start()
 	{
+		Screen.lockCursor = true;
 	}
 	
 	void FixedUpdate()
 	{
 		Run();
 		Jump();
+		Turn();
 	}
 	
 	void Run()
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 		movement.Normalize();
 		
 		movement *= moveForce * Time.fixedDeltaTime;
+		movement = transform.TransformDirection(movement);
 		if (rigidbody.velocity.magnitude + movement.magnitude > maxSpeed)
 			return;
 		
@@ -60,6 +63,11 @@ public class PlayerMovement : MonoBehaviour
 	public void JumpExit()
 	{
 		canJump = false;
+	}
+	
+	void Turn()
+	{
+		transform.Rotate(Vector3.up, Input.GetAxis("Mouse X"));
 	}
 	
 	void OnGUI()
