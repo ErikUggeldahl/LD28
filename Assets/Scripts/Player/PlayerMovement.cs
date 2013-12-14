@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 	float maxSpeed = 10f;
-	float moveForce = 10f;
+	float moveForce = 15f;
 	
 	float jumpForce = 15f;
 	
@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
 		Turn();
+		
+		if (Input.GetKeyDown(KeyCode.LeftControl))
+			Screen.lockCursor = true;
 	}
 	
 	void FixedUpdate()
@@ -76,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 	
 	void OnGUI()
 	{
+		GUI.color = Color.black;
 		GUILayout.Label(rigidbody.velocity.magnitude.ToString());
-		GUILayout.Label(canJump.ToString());
 	}
 }

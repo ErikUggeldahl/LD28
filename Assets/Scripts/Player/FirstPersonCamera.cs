@@ -3,9 +3,6 @@ using System.Collections;
 
 public class FirstPersonCamera : MonoBehaviour
 {
-	const float SLOPE = -1f/90f;
-	const float B = 4;
-	
 	public Vector3 Direction
 	{
 		get

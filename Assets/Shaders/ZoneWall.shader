@@ -1,4 +1,4 @@
-﻿Shader "Custom/NoPassShader" {
+﻿Shader "Custom/ZoneWall" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 	}
@@ -30,6 +30,7 @@
 				v2f o;
 				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 				o.uv = TRANSFORM_TEX(v.texcoord.xy, _MainTex);
+				o.uv.y += _Time.z;
 				return o;
 			}
 			
