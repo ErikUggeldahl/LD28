@@ -17,11 +17,15 @@ public class PlayerMovement : MonoBehaviour
 		Screen.lockCursor = true;
 	}
 	
+	void Update()
+	{
+		Turn();
+	}
+	
 	void FixedUpdate()
 	{
 		Run();
 		Jump();
-		Turn();
 	}
 	
 	void Run()
@@ -67,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 	
 	void Turn()
 	{
-		transform.Rotate(Vector3.up, Input.GetAxis("Mouse X"));
+		transform.Rotate(Vector3.up, Input.GetAxis("Mouse X") * UserPreferences.Instance.MouseSensitivity);
 	}
 	
 	void OnGUI()
