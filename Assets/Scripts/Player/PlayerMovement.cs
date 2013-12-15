@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 	
 	void Jump()
 	{
-		if (canJump && isJumpReady && Input.GetKeyDown(KeyCode.Space))
+		if (canJump && isJumpReady && Input.GetKey(KeyCode.Space))
 		{
 			rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
 			StartCoroutine("JumpCooldown");
@@ -81,5 +81,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		GUI.color = Color.black;
 		GUILayout.Label(rigidbody.velocity.magnitude.ToString());
+		GUILayout.Label(canJump.ToString());
 	}
 }

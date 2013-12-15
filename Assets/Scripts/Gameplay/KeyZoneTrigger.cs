@@ -26,8 +26,8 @@ public class KeyZoneTrigger : MonoBehaviour
 			return;
 		
 		keyCount--;
+		
 		if (OnKeyExit != null && keyCount == 0)
 			OnKeyExit();
 	}
 }
-

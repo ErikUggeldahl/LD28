@@ -1,4 +1,4 @@
-﻿Shader "Custom/ZoneWall" {
+﻿Shader "Custom/Timer" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 	}
@@ -25,19 +25,22 @@
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			
+			float phase;
+			#define PHASE_OFFSET 0.125f;
+			
 			v2f vert(appdata_base v)
 			{
 				v2f o;
 				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 				o.uv = TRANSFORM_TEX(v.texcoord.xy, _MainTex);
-				o.uv.y += _Time.z;
+				o.uv.x *= PHASE_OFFSET;
+				o.uv.x += phase * PHASE_OFFSET;
 				return o;
 			}
 			
 			half4 frag(v2f i) : COLOR
 			{
-				half4 c = tex2D(_MainTex, i.uv);
-				return c;
+				return tex2D(_MainTex, i.uv);
 			}
 			ENDCG
 		}

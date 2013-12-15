@@ -9,6 +9,6 @@ public class ModelImporterSettings : AssetPostprocessor
 	{
 		ModelImporter mi = (ModelImporter)assetImporter;
 		mi.importMaterials = false;
-		mi.animationType = ModelImporterAnimationType.None;
+		//mi.animationType = ModelImporterAnimationType.None;
 	}
 }
