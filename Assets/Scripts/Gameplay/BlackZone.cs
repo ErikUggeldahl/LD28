@@ -12,8 +12,11 @@ public class BlackZone : MonoBehaviour
 		particle.emissionRate = 10f * transform.localScale.x * transform.localScale.y;
 	}
 	
-	void Update()
+	void OnTriggerEnter(Collider other)
 	{
-	
+		if (other.tag == "Player")
+		{
+			Application.LoadLevel(Application.loadedLevel);
+		}
 	}
 }

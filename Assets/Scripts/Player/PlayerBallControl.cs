@@ -8,6 +8,9 @@ public class PlayerBallControl : MonoBehaviour
 	public GameObject ballObject;
 	BallMovement ball;
 	
+	public bool spawnWithBall;
+	bool hasBall;
+	
 	public FirstPersonCamera fpCamera;
 	
 	int maxFireCharges = 2;
@@ -17,12 +20,18 @@ public class PlayerBallControl : MonoBehaviour
 	
 	void Start()
 	{
-		ball = ((GameObject)Instantiate(ballObject, attachmentPoint.position, attachmentPoint.rotation)).GetComponent<BallMovement>();
+		if (spawnWithBall)
+			ball = ((GameObject)Instantiate(ballObject, attachmentPoint.position, attachmentPoint.rotation)).GetComponent<BallMovement>();
+		hasBall = spawnWithBall;
+		
 		fireCharges = maxFireCharges;
 	}
 	
 	void Update()
 	{
+		if (!hasBall)
+			return;
+		
 		AttractBall();
 		FireBall();
 	}
@@ -35,8 +44,14 @@ public class PlayerBallControl : MonoBehaviour
 		}
 	}
 	
-	public void AttachEnter()
+	public void AttachEnter(GameObject ballObj)
 	{
+		if (!hasBall)
+		{
+			ball = ballObj.GetComponent<BallMovement>();
+			hasBall = true;
+		}
+		
 		rigidbody.AddForce(ball.rigidbody.velocity / catchForceDampening, ForceMode.VelocityChange);
 		ball.SetPosition(attachmentPoint.position);
 		ball.Freeze(attachmentPoint);

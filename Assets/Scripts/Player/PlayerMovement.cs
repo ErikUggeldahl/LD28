@@ -20,9 +20,6 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
 		Turn();
-		
-		if (Input.GetKeyDown(KeyCode.LeftControl))
-			Screen.lockCursor = true;
 	}
 	
 	void FixedUpdate()

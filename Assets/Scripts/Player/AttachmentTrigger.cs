@@ -7,6 +7,6 @@ public class AttachmentTrigger : MonoBehaviour
 	
 	void OnTriggerEnter(Collider other)
 	{
-		toNotify.AttachEnter();
+		toNotify.AttachEnter(other.gameObject);
 	}
 }
