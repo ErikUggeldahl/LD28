@@ -11,12 +11,4 @@ public class BlackZone : MonoBehaviour
 		quadRenderer.material.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.z) / 2f;
 		particle.emissionRate = 10f * transform.localScale.x * transform.localScale.y;
 	}
-	
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.tag == "Player")
-		{
-			Application.LoadLevel(Application.loadedLevel);
-		}
-	}
 }

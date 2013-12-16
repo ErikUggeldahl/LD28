@@ -4,9 +4,9 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 	float maxSpeed = 10f;
-	float moveForce = 15f;
+	float moveForce = 20f;
 	
-	float jumpForce = 15f;
+	float jumpForce = 20f;
 	
 	bool canJump = false;
 	bool isJumpReady = true;

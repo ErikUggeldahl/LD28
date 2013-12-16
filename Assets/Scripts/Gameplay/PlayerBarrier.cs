@@ -13,11 +13,15 @@ public class PlayerBarrier : MonoBehaviour
 		}
 	}
 	
+	public bool hasKey = false;
 	public KeyZoneTrigger unlockTrigger;
 	
 	void Start()
 	{
 		renderer.material.mainTextureScale = new Vector2(transform.localScale.x, transform.localScale.y) / 4f;
+		
+		if (!hasKey)
+			return;
 		
 		unlockTrigger.OnKeyEnter += OnKeyIn;
 		unlockTrigger.OnKeyExit += OnKeyOut;

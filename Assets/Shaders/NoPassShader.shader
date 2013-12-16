@@ -3,13 +3,14 @@
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 	}
 	SubShader {
-		Tags { "RenderType"="Transparent" }
+		Tags { "RenderType"="Transparent" "Queue" = "Transparent" }
 		LOD 200
 		
 		Pass
 		{
 			
 			AlphaTest Greater 0.0
+			Blend SrcAlpha OneMinusSrcAlpha
 			Cull Off
 			
 			CGPROGRAM
@@ -35,7 +36,9 @@
 			
 			half4 frag(v2f i) : COLOR
 			{
-				return tex2D(_MainTex, i.uv);
+				half4 c = tex2D(_MainTex, i.uv);
+				c.a *= 0.5;
+				return c;
 			}
 			ENDCG
 		}
