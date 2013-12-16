@@ -16,6 +16,9 @@ public class PlayerBallControl : MonoBehaviour
 	int maxFireCharges = 2;
 	int fireCharges;
 	
+	public AudioSource fireSound;
+	public AudioSource catchSound;
+	
 	float catchForceDampening = 7.5f;
 	
 	void Start()
@@ -56,6 +59,7 @@ public class PlayerBallControl : MonoBehaviour
 		ball.SetPosition(attachmentPoint.position);
 		ball.Freeze(attachmentPoint);
 		fireCharges = maxFireCharges;
+		catchSound.Play();
 	}
 	
 	void FireBall()
@@ -65,6 +69,7 @@ public class PlayerBallControl : MonoBehaviour
 			ball.Unfreeze();
 			ball.Fire(transform.TransformDirection(fpCamera.Direction));
 			fireCharges --;
+			fireSound.Play();
 		}
 	}
 }

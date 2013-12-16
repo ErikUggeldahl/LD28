@@ -12,6 +12,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GetVertical.unity
   - enabled: 1
-    path: Assets/Scenes/GetTheOne.unity
+    path: Assets/Scenes/TheOne.unity
   - enabled: 1
     path: Assets/Scenes/GoneFishing.unity
+  - enabled: 1
+    path: Assets/Scenes/WhatLurks.unity
+  - enabled: 1
+    path: Assets/Scenes/HelloWorldRedux.unity
+  - enabled: 1
+    path: Assets/Scenes/Bridge.unity

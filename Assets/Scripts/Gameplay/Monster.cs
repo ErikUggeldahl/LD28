@@ -20,6 +20,9 @@ public class Monster : MonoBehaviour
 	
 	public Animation monsterAnimation;
 	
+	public AudioSource alertSound;
+	public AudioSource attackedSound;
+	
 	void Start()
 	{
 		player = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -64,6 +67,7 @@ public class Monster : MonoBehaviour
 	IEnumerator HitRecover()
 	{
 		SetState(State.Hit);
+		attackedSound.Play();
 		yield return new WaitForSeconds(recoveryTime);
 		SetState(State.Idle);
 	}
@@ -83,6 +87,7 @@ public class Monster : MonoBehaviour
 		{
 			monsterAnimation.Play("Stand");
 			monsterAnimation.PlayQueued("Run");
+			alertSound.Play();
 		}
 	}
 }

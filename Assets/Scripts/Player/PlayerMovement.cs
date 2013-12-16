@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 	bool canJump = false;
 	bool isJumpReady = true;
 	float jumpCooldown = 0.2f;
+	public AudioSource jumpSound;
 	
 	void Start()
 	{
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
 			StartCoroutine("JumpCooldown");
+			jumpSound.Play();
 		}
 	}
 	

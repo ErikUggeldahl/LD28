@@ -1202,6 +1202,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: c1a07df270756984292cf272637d2658, type: 2}
+      propertyPath: spawnWithBall
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1a07df270756984292cf272637d2658, type: 2}
   m_RootGameObject: {fileID: 791065194}
