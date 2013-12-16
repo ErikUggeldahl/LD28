@@ -76,10 +76,10 @@ public class PlayerMovement : MonoBehaviour
 		transform.Rotate(Vector3.up, Input.GetAxis("Mouse X") * UserPreferences.Instance.MouseSensitivity);
 	}
 	
-	void OnGUI()
+	/*void OnGUI()
 	{
 		GUI.color = Color.black;
 		GUILayout.Label(rigidbody.velocity.magnitude.ToString());
 		GUILayout.Label(canJump.ToString());
-	}
+	}*/
 }
